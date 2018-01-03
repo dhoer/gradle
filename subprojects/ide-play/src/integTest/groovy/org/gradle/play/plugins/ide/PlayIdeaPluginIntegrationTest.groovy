@@ -125,9 +125,13 @@ abstract class PlayIdeaPluginIntegrationTest extends PlayIdePluginIntegrationTes
     }
 
     def "IDEA metadata contains correct dependencies for RUNTIME, COMPILE, TEST"() {
+        given:
         applyIdePlugin()
+        executer.noDeprecationChecks() // trait Controller in package mvc is deprecated (since 2.6.0)
         succeeds("assemble") // Need generated directories to exist
+
         when:
+        executer.noDeprecationChecks()
         succeeds(ideTask)
         then:
 

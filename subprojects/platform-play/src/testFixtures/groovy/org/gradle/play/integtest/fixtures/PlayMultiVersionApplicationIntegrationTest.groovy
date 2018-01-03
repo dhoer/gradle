@@ -25,6 +25,7 @@ abstract class PlayMultiVersionApplicationIntegrationTest extends PlayMultiVersi
     abstract PlayApp getPlayApp()
 
     def setup() {
+        playApp.writeSources(testDirectory)
         buildFile << """
             model {
                 components {
@@ -34,8 +35,6 @@ abstract class PlayMultiVersionApplicationIntegrationTest extends PlayMultiVersi
                 }
             }
         """
-
-        playApp.writeSources(testDirectory)
         settingsFile << """
             rootProject.name = '${playApp.name}'
         """
