@@ -14,6 +14,9 @@
  * limitations under the License.
  */
 package org.gradle.integtests.resolve
+
+import spock.lang.Ignore
+
 /**
  * This also tests maven's optional dependencies for the cases where we only have pom metadata available.
  */
@@ -337,6 +340,7 @@ class PublishedDependencyConstraintsIntegrationTest extends AbstractModuleDepend
         }
     }
 
+    @Ignore
     void "dependency constraint on substituted module is recognized properly"() {
         given:
         def available = featureAvailable()

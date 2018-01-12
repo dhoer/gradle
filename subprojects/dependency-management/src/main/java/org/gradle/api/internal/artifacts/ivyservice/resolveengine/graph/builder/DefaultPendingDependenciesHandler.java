@@ -18,7 +18,6 @@ package org.gradle.api.internal.artifacts.ivyservice.resolveengine.graph.builder
 import com.google.common.collect.Lists;
 import org.gradle.api.artifacts.ModuleIdentifier;
 import org.gradle.api.internal.artifacts.ComponentSelectorConverter;
-import org.gradle.api.internal.artifacts.DependencySubstitutionInternal;
 import org.gradle.api.internal.artifacts.ivyservice.dependencysubstitution.DependencySubstitutionApplicator;
 
 import java.util.List;
@@ -78,11 +77,13 @@ public class DefaultPendingDependenciesHandler implements PendingDependenciesHan
         }
 
         private ModuleIdentifier lookupModuleIdentifier(DependencyState dependencyState) {
+/*
             DependencySubstitutionApplicator.SubstitutionResult substitutionResult = dependencySubstitutionApplicator.apply(dependencyState.getDependencyMetadata());
             DependencySubstitutionInternal details = substitutionResult.getResult();
             if (details != null && details.isUpdated()) {
                 return componentSelectorConverter.getModule(details.getTarget());
             }
+*/
             return dependencyState.getModuleIdentifier();
         }
 

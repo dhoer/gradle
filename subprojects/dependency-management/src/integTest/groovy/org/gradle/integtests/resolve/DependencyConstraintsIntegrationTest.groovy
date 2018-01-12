@@ -17,6 +17,7 @@ package org.gradle.integtests.resolve
 
 import org.gradle.integtests.fixtures.AbstractIntegrationSpec
 import org.gradle.integtests.fixtures.resolve.ResolveTestFixture
+import spock.lang.Ignore
 
 /**
  * This is a variation of {@link PublishedDependencyConstraintsIntegrationTest} that tests dependency constraints
@@ -197,6 +198,7 @@ class DependencyConstraintsIntegrationTest extends AbstractIntegrationSpec {
         }
     }
 
+    @Ignore
     void "dependency constraints on substituted module is recognized properly"() {
         given:
         mavenRepo.module("org", "foo", '1.0').publish()
